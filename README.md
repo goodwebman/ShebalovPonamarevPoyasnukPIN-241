@@ -15,6 +15,8 @@
 - Профилирование и качество: [notebooks/profile_quality.ipynb](notebooks/profile_quality.ipynb) и
   [docs/data_quality_report.md](docs/data_quality_report.md); результаты - `staging.parquet` и `quarantine.parquet` в
   `s3://staging/seoul_bike_sharing/source_ingested_on=<логическая_дата>/`.
+- Витрина: [notebooks/build_mart.ipynb](notebooks/build_mart.ipynb) и [docs/mart.md](docs/mart.md); таблица
+  `hourly_rentals` - `s3://mart/seoul_bike_sharing/source_ingested_on=<логическая_дата>/hourly_rentals.parquet`.
 
 ## Контур данных
 
