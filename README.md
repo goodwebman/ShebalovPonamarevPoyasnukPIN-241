@@ -12,6 +12,9 @@
   [data/source/README.md](data/source/README.md).
 - Загрузка в raw: DAG `ingest_raw` сохраняет файл в
   `s3://raw/seoul_bike_sharing/ingested_on=<логическая_дата>/SeoulBikeData.csv`.
+- Профилирование и качество: [notebooks/profile_quality.ipynb](notebooks/profile_quality.ipynb) и
+  [docs/data_quality_report.md](docs/data_quality_report.md); результаты - `staging.parquet` и `quarantine.parquet` в
+  `s3://staging/seoul_bike_sharing/source_ingested_on=<логическая_дата>/`.
 
 ## Контур данных
 
