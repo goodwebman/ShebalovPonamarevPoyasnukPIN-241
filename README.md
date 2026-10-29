@@ -2,6 +2,17 @@
 
 Сквозной учебный data-проект курса «Информационные технологии анализа данных».
 
+## Проект команды
+
+- Авторы: Shebalov Danil, Ponamarev Mihail, Poyasnuk Nastya (ПИН-241).
+- Набор данных: [Seoul Bike Sharing Demand](https://archive.ics.uci.edu/dataset/560/seoul+bike+sharing+demand),
+  UCI Machine Learning Repository, CC BY 4.0. Почасовое число аренд городского проката велосипедов Сеула с
+  погодными и календарными признаками за период с 2017-12-01 по 2018-11-30.
+- Постановка задачи: [docs/project_brief.md](docs/project_brief.md). Снимок источника и его происхождение:
+  [data/source/README.md](data/source/README.md).
+- Загрузка в raw: DAG `ingest_raw` сохраняет файл в
+  `s3://raw/seoul_bike_sharing/ingested_on=<логическая_дата>/SeoulBikeData.csv`.
+
 ## Контур данных
 
 ```text
@@ -37,7 +48,7 @@ uv run ruff check .
 docker compose up --build -d
 uv run --env-file .env dbt debug --project-dir dbt --profiles-dir dbt
 uv run --env-file .env dbt build --project-dir dbt --profiles-dir dbt
-uv run --env-file .env python scripts/read_raw.py --path "s3://raw/green_tripdata/ingested_on=2026-01-01/green_tripdata_2025-01.parquet"
+uv run --env-file .env python scripts/read_raw.py --path "s3://raw/seoul_bike_sharing/ingested_on=<логическая_дата>/SeoulBikeData.csv"
 docker compose down
 ```
 
