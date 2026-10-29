@@ -25,9 +25,12 @@ if parsed_url.query:
 with DAG(
     dag_id="ingest_raw",
     description="Ждёт HTTP-источник Seoul Bike Sharing Demand и сохраняет файл в raw-слой S3.",
-    start_date=pendulum.datetime(2026, 10, 1, tz="UTC"),
+    # Одна логическая дата 2026-10-24: запуск стенда с чистого листа воспроизводит
+    # единственную загрузку в партицию ingested_on=2026-10-24, которую используют ЛР № 3-4.
+    start_date=pendulum.datetime(2026, 10, 24, tz="UTC"),
+    end_date=pendulum.datetime(2026, 10, 24, tz="UTC"),
     schedule="@daily",
-    catchup=False,
+    catchup=True,
     max_active_runs=1,
     tags=["raw"],
 ) as dag:
